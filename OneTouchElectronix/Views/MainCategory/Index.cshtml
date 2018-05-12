@@ -1,8 +1,32 @@
-﻿
+﻿@model IEnumerable<OneTouchElectronix.Models.MainCategory>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New Category", "Create")
+</p>
+
+<table class="table">
+    <tr>
+        <th>@Html.DisplayNameFor(m => m.MainCategoryName)</th>
+        <th></th>
+    </tr>
+
+    @foreach (var category in Model)
+    {
+        <tr>
+            <td>@Html.DisplayNameFor(name => name.MainCategoryName)</td>
+            <td>
+                @Html.ActionLink("Edit Category", "Edit", new { id =category.MainCategoryId}) |
+                @Html.ActionLink("Category Details", "Details", new { id = category.MainCategoryId}) |
+                @Html.ActionLink("Delete Category", "Delete", new { id =category.MainCategoryId})
+            </td>
+        </tr>
+    }
+
+</table>
 

@@ -29,5 +29,8 @@ namespace OneTouchElectronix.Models
         {
             return new ApplicationDbContext();
         }
+
+        public DbSet<TEST> TESTs { get; set; }
+        public DbSet<MainCategory> MainCategories { get; set; }
     }
 }
