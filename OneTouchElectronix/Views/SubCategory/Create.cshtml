@@ -1,0 +1,44 @@
+﻿@model OneTouchElectronix.Models.SubCategory
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+    <h1>Sub Category</h1>
+    <hr />
+
+    @Html.ValidationSummary(true, "", new { @class ="text-danger" })
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.SubCategoryName, htmlAttributes: new { @class = "control-label col-md-4"})
+        <div class="col-md-8">
+            @Html.EditorFor(model => model.SubCategoryName, new { htmlAttributes = new { @class ="form-control" } })
+            @Html.ValidationMessageFor(model => model.SubCategoryName, "", new { @class = "text-danger"})
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.MainCategoryId, "Main Category", htmlAttributes : new { @class = "control-label col-md-4"})
+        <div class="col-md-8">
+            @Html.DropDownList("MainCategoryId", null, htmlAttributes: new { @class = "form-control"})
+            @Html.ValidationMessageFor(model => model.MainCategoryId, "", new { @class = "text-danger"})
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-4 col-md-8">
+            <input type="submit" value="Create SubCategroy" class="btn btn-success"/>
+        </div>
+    </div>
+  </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+

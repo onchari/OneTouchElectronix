@@ -11,5 +11,6 @@ namespace OneTouchElectronix.Models
         public string Name { get; set; }
         public DateTime DOB { get; set; }
 
+        public ICollection<SubTests> SubTests { get; set; }
     }
 }

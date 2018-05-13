@@ -199,23 +199,49 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MainCategoryController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\StandardsController.cs" />
+    <Compile Include="Controllers\StudentsController.cs" />
+    <Compile Include="Controllers\SubCategoryController.cs" />
+    <Compile Include="Controllers\SubTestsController.cs" />
     <Compile Include="Controllers\TESTsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201805121909261_InitialCreate.cs" />
-    <Compile Include="Migrations\201805121909261_InitialCreate.Designer.cs">
-      <DependentUpon>201805121909261_InitialCreate.cs</DependentUpon>
+    <Compile Include="Interfaces\IControllers.cs" />
+    <Compile Include="Interfaces\IEntities.cs" />
+    <Compile Include="Migrations\201805130826202_QWEewwsd.cs" />
+    <Compile Include="Migrations\201805130826202_QWEewwsd.Designer.cs">
+      <DependentUpon>201805130826202_QWEewwsd.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201805121935574_Second001.cs" />
-    <Compile Include="Migrations\201805121935574_Second001.Designer.cs">
-      <DependentUpon>201805121935574_Second001.cs</DependentUpon>
+    <Compile Include="Migrations\201805130845015_000333300855.cs" />
+    <Compile Include="Migrations\201805130845015_000333300855.Designer.cs">
+      <DependentUpon>201805130845015_000333300855.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805131105351_00111223.cs" />
+    <Compile Include="Migrations\201805131105351_00111223.Designer.cs">
+      <DependentUpon>201805131105351_00111223.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805131118034_001112543.cs" />
+    <Compile Include="Migrations\201805131118034_001112543.Designer.cs">
+      <DependentUpon>201805131118034_001112543.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805131120365_0011125fff.cs" />
+    <Compile Include="Migrations\201805131120365_0011125fff.Designer.cs">
+      <DependentUpon>201805131120365_0011125fff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805131149302_0011125ffffff.cs" />
+    <Compile Include="Migrations\201805131149302_0011125ffffff.Designer.cs">
+      <DependentUpon>201805131149302_0011125ffffff.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\MainCategory.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Standard.cs" />
+    <Compile Include="Models\Student.cs" />
+    <Compile Include="Models\SubCategory.cs" />
+    <Compile Include="Models\SubTests.cs" />
     <Compile Include="Models\TEST.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -244,6 +270,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\main.css" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -286,6 +313,24 @@
     <Content Include="Views\TESTs\Edit.cshtml" />
     <Content Include="Views\TESTs\Index.cshtml" />
     <Content Include="Views\MainCategory\Create.cshtml" />
+    <Content Include="Views\SubCategory\Index.cshtml" />
+    <Content Include="Views\Shared\_Layout1.cshtml" />
+    <Content Include="Views\SubTests\Create.cshtml" />
+    <Content Include="Views\SubTests\Delete.cshtml" />
+    <Content Include="Views\SubTests\Details.cshtml" />
+    <Content Include="Views\SubTests\Edit.cshtml" />
+    <Content Include="Views\SubTests\Index.cshtml" />
+    <Content Include="Views\Students\Create.cshtml" />
+    <Content Include="Views\Students\Delete.cshtml" />
+    <Content Include="Views\Students\Details.cshtml" />
+    <Content Include="Views\Students\Edit.cshtml" />
+    <Content Include="Views\Students\Index.cshtml" />
+    <Content Include="Views\Standards\Create.cshtml" />
+    <Content Include="Views\Standards\Delete.cshtml" />
+    <Content Include="Views\Standards\Details.cshtml" />
+    <Content Include="Views\Standards\Edit.cshtml" />
+    <Content Include="Views\Standards\Index.cshtml" />
+    <Content Include="Views\SubCategory\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -305,11 +350,23 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201805121909261_InitialCreate.resx">
-      <DependentUpon>201805121909261_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201805130826202_QWEewwsd.resx">
+      <DependentUpon>201805130826202_QWEewwsd.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805121935574_Second001.resx">
-      <DependentUpon>201805121935574_Second001.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201805130845015_000333300855.resx">
+      <DependentUpon>201805130845015_000333300855.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805131105351_00111223.resx">
+      <DependentUpon>201805131105351_00111223.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805131118034_001112543.resx">
+      <DependentUpon>201805131118034_001112543.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805131120365_0011125fff.resx">
+      <DependentUpon>201805131120365_0011125fff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805131149302_0011125ffffff.resx">
+      <DependentUpon>201805131149302_0011125ffffff.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

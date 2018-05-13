@@ -7,7 +7,7 @@
 
     <ul class="nav navbar-nav navbar-right">
         <li>@Html.ActionLink("Add Category", "Index", "MainCategory")</li>
-        <li>@Html.ActionLink("Add Sub-Category", "SubCategory")</li>
+        <li>@Html.ActionLink("Add Sub-Category","Index", "SubCategory")</li>
         <li>@Html.ActionLink("Add Products", "Products")</li>
         <li>
             @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })

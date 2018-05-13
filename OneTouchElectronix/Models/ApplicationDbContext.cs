@@ -31,6 +31,12 @@ namespace OneTouchElectronix.Models
         }
 
         public DbSet<TEST> TESTs { get; set; }
+        public DbSet<SubTests> SubTests { get; set; }
         public DbSet<MainCategory> MainCategories { get; set; }
+        public DbSet<SubCategory> SubCategories { get; set; }
+
+        public System.Data.Entity.DbSet<OneTouchElectronix.Models.Student> Students { get; set; }
+
+        public System.Data.Entity.DbSet<OneTouchElectronix.Models.Standard> Standards { get; set; }
     }
 }

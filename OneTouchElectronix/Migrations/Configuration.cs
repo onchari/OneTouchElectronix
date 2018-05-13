@@ -10,7 +10,6 @@ namespace OneTouchElectronix.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "OneTouchElectronix.Models.ApplicationDbContext";
         }
 
         protected override void Seed(OneTouchElectronix.Models.ApplicationDbContext context)

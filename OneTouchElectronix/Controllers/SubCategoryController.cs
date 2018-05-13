@@ -8,42 +8,38 @@ using System.Web.Mvc;
 
 namespace OneTouchElectronix.Controllers
 {
-    public class MainCategoryController : Controller, IControllers
+    public class SubCategoryController : Controller, IControllers
     {
-
-
         ApplicationDbContext db = new ApplicationDbContext();
-       
 
-        // GET: MainCategory
-        public ActionResult Index()
-        {
-            
-            return View(db.MainCategories.ToList());
-        }
-
-        //GET : MainCategory/Create
+        //GET : SubCategory/Create
         public ActionResult Create()
         {
+            ViewBag.MainCategoryId = new SelectList(db.MainCategories, "MainCategoryId", "MainCategoryName");
             return View();
         }
 
-        //POST : MainCategory/Create
-        [ValidateAntiForgeryToken]
-        [HttpPost]
-        public ActionResult Create([Bind(Include = "MainCategoryName, MainCategoryId, MainCategoryDescription")] MainCategory mainCategoryentity)
+       //POST : SubCategory/Create
+       [HttpPost]
+       [ValidateAntiForgeryToken]
+       public ActionResult Create([Bind(Include ="SubCategoryId, SubCategoryName, MainCategoryId")] SubCategory subCategoryentity)
         {
             if (ModelState.IsValid)
             {
-                db.MainCategories.Add(mainCategoryentity);
+                db.SubCategories.Add(subCategoryentity);
                 db.SaveChanges();
                 return RedirectToAction("Index");
-
             }
-            return View(mainCategoryentity);
+            ViewBag.MainCategoryId = new SelectList(db.MainCategories, "MainCategoryId", "MainCategoryName", subCategoryentity.MainCategoryId);
+            return View(subCategoryentity);
         }
 
         public ActionResult Delete()
+        {
+            throw new NotImplementedException();
+        }
+
+        public ActionResult DeleteConfirmed()
         {
             throw new NotImplementedException();
         }
@@ -58,9 +54,10 @@ namespace OneTouchElectronix.Controllers
             throw new NotImplementedException();
         }
 
-        public ActionResult DeleteConfirmed()
+        public ActionResult Index()
         {
-            throw new NotImplementedException();
+            return View(db.SubCategories.ToList());
+            
         }
     }
 }
