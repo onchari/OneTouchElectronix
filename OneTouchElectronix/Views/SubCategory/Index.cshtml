@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<OneTouchElectronix.Models.SubCategory>
+
 @{
     ViewBag.Title = "SubCategory";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -18,9 +19,7 @@
         <th>
             @Html.DisplayNameFor(m => m.SubCategoryName)
         </th>
-        <th>
-            @Html.DisplayNameFor(m => m.SubCategoryDescription)
-        </th>
+       
         <th></th>
 
     </tr>
@@ -34,9 +33,7 @@
         <td>
             @Html.DisplayFor(m => subcategory.SubCategoryName)
         </td>
-        <td>
-            @Html.DisplayFor(m => subcategory.SubCategoryDescription)
-        </td>
+       
         <td>
             @Html.ActionLink("Edit", "Edit", new { id = subcategory.SubCategoryId}) |
             @Html.ActionLink("Details", "Details", new {  id = subcategory.SubCategoryId})|
