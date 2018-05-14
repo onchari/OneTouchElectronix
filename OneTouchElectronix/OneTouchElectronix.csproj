@@ -331,6 +331,9 @@
     <Content Include="Views\Standards\Edit.cshtml" />
     <Content Include="Views\Standards\Index.cshtml" />
     <Content Include="Views\SubCategory\Create.cshtml" />
+    <Content Include="Views\MainCategory\Details.cshtml" />
+    <Content Include="Views\MainCategory\Edit.cshtml" />
+    <Content Include="Views\MainCategory\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
