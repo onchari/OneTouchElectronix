@@ -209,29 +209,13 @@
     </Compile>
     <Compile Include="Interfaces\IControllers.cs" />
     <Compile Include="Interfaces\IEntities.cs" />
-    <Compile Include="Migrations\201805130826202_QWEewwsd.cs" />
-    <Compile Include="Migrations\201805130826202_QWEewwsd.Designer.cs">
-      <DependentUpon>201805130826202_QWEewwsd.cs</DependentUpon>
+    <Compile Include="Migrations\201805151426360_xyz.cs" />
+    <Compile Include="Migrations\201805151426360_xyz.Designer.cs">
+      <DependentUpon>201805151426360_xyz.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201805130845015_000333300855.cs" />
-    <Compile Include="Migrations\201805130845015_000333300855.Designer.cs">
-      <DependentUpon>201805130845015_000333300855.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201805131105351_00111223.cs" />
-    <Compile Include="Migrations\201805131105351_00111223.Designer.cs">
-      <DependentUpon>201805131105351_00111223.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201805131118034_001112543.cs" />
-    <Compile Include="Migrations\201805131118034_001112543.Designer.cs">
-      <DependentUpon>201805131118034_001112543.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201805131120365_0011125fff.cs" />
-    <Compile Include="Migrations\201805131120365_0011125fff.Designer.cs">
-      <DependentUpon>201805131120365_0011125fff.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201805131149302_0011125ffffff.cs" />
-    <Compile Include="Migrations\201805131149302_0011125ffffff.Designer.cs">
-      <DependentUpon>201805131149302_0011125ffffff.cs</DependentUpon>
+    <Compile Include="Migrations\201805151430014_xyzhh.cs" />
+    <Compile Include="Migrations\201805151430014_xyzhh.Designer.cs">
+      <DependentUpon>201805151430014_xyzhh.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -334,6 +318,9 @@
     <Content Include="Views\MainCategory\Details.cshtml" />
     <Content Include="Views\MainCategory\Edit.cshtml" />
     <Content Include="Views\MainCategory\Delete.cshtml" />
+    <Content Include="Views\SubCategory\Edit.cshtml" />
+    <Content Include="Views\SubCategory\Details.cshtml" />
+    <Content Include="Views\SubCategory\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -353,23 +340,11 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201805130826202_QWEewwsd.resx">
-      <DependentUpon>201805130826202_QWEewwsd.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201805151426360_xyz.resx">
+      <DependentUpon>201805151426360_xyz.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805130845015_000333300855.resx">
-      <DependentUpon>201805130845015_000333300855.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805131105351_00111223.resx">
-      <DependentUpon>201805131105351_00111223.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805131118034_001112543.resx">
-      <DependentUpon>201805131118034_001112543.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805131120365_0011125fff.resx">
-      <DependentUpon>201805131120365_0011125fff.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805131149302_0011125ffffff.resx">
-      <DependentUpon>201805131149302_0011125ffffff.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201805151430014_xyzhh.resx">
+      <DependentUpon>201805151430014_xyzhh.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -3,7 +3,7 @@ namespace OneTouchElectronix.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class QWEewwsd : DbMigration
+    public partial class xyz : DbMigration
     {
         public override void Up()
         {
@@ -52,6 +52,40 @@ namespace OneTouchElectronix.Migrations
                 .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
                 .Index(t => t.UserId)
                 .Index(t => t.RoleId);
+            
+            CreateTable(
+                "dbo.Standards",
+                c => new
+                    {
+                        StandardId = c.Int(nullable: false, identity: true),
+                        StandardName = c.String(),
+                    })
+                .PrimaryKey(t => t.StandardId);
+            
+            CreateTable(
+                "dbo.Students",
+                c => new
+                    {
+                        StudentID = c.Int(nullable: false, identity: true),
+                        StudentName = c.String(),
+                        StandardId = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.StudentID)
+                .ForeignKey("dbo.Standards", t => t.StandardId, cascadeDelete: true)
+                .Index(t => t.StandardId);
+            
+            CreateTable(
+                "dbo.SubTests",
+                c => new
+                    {
+                        ID = c.Int(nullable: false, identity: true),
+                        SubTestId = c.Int(nullable: false),
+                        SubTestName = c.String(),
+                        Test_ID = c.Int(),
+                    })
+                .PrimaryKey(t => t.ID)
+                .ForeignKey("dbo.TESTs", t => t.Test_ID)
+                .Index(t => t.Test_ID);
             
             CreateTable(
                 "dbo.TESTs",
@@ -115,11 +149,15 @@ namespace OneTouchElectronix.Migrations
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.SubTests", "Test_ID", "dbo.TESTs");
+            DropForeignKey("dbo.Students", "StandardId", "dbo.Standards");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
             DropForeignKey("dbo.SubCategories", "MainCategoryId", "dbo.MainCategories");
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
+            DropIndex("dbo.SubTests", new[] { "Test_ID" });
+            DropIndex("dbo.Students", new[] { "StandardId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
@@ -128,6 +166,9 @@ namespace OneTouchElectronix.Migrations
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
             DropTable("dbo.TESTs");
+            DropTable("dbo.SubTests");
+            DropTable("dbo.Students");
+            DropTable("dbo.Standards");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");
             DropTable("dbo.SubCategories");

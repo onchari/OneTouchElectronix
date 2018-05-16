@@ -7,13 +7,13 @@ namespace OneTouchElectronix.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class QWEewwsd : IMigrationMetadata
+    public sealed partial class xyz : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(QWEewwsd));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(xyz));
         
         string IMigrationMetadata.Id
         {
-            get { return "201805130826202_QWEewwsd"; }
+            get { return "201805151426360_xyz"; }
         }
         
         string IMigrationMetadata.Source

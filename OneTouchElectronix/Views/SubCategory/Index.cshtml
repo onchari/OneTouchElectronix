@@ -7,40 +7,76 @@
 
 <h2>SubCategory</h2>
 
-<p>
-    @Html.ActionLink("Create SubCategory", "Create")
-</p>
 
-<table class="table table-striped table-bordered table-hover table-condensed" >
-    <tr>
-        <th>
-            @Html.DisplayNameFor(m => m.SubCategoryId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(m => m.SubCategoryName)
-        </th>
-       
-        <th></th>
-
-    </tr>
-
-@foreach (var subcategory in Model)
-{
-    <tr>
-        <td>
-            @Html.DisplayFor(m => subcategory.SubCategoryId)
-        </td>
-        <td>
-            @Html.DisplayFor(m => subcategory.SubCategoryName)
-        </td>
-       
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = subcategory.SubCategoryId}) |
-            @Html.ActionLink("Details", "Details", new {  id = subcategory.SubCategoryId})|
-            @Html.ActionLink("Delete", "Delete", new { id = subcategory.SubCategoryId})
-        </td>
-    </tr>
-
+@{ 
+    int count = Model.Count();
+    int num = 1;
 }
 
-</table>
+@if (count > 0)
+{
+
+    <table class="table table-striped table-bordered table-hover table-condensed">
+        <tr>
+            <th>
+                No.
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.SubCategoryName)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(m => m.MainCategory.MainCategoryName)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(m => m.SubCategoryDescription)
+            </th>
+            <th></th>
+
+        </tr>
+
+        @foreach (var subcategory in Model)
+        {
+            string description = subcategory.SubCategoryDescription ?? "No Description Found".ToUpper();
+
+        <tr>
+            <th>00</th>
+
+
+            <td>
+                @Html.DisplayFor(m => subcategory.SubCategoryName)
+            </td>
+            <td>
+                @Html.DisplayFor(m => subcategory.MainCategoryId)
+            </td>
+            <td>
+                @Html.DisplayFor(m => description)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = subcategory.SubCategoryId }) |
+                @Html.ActionLink("Details", "Details", new { id = subcategory.SubCategoryId })|
+                @Html.ActionLink("Delete", "Delete", new { id = subcategory.SubCategoryId })
+            </td>
+            
+        </tr>
+           
+            
+        }
+
+    </table>
+
+    <p>
+       Need to Add more? @Html.ActionLink("Create More", "Create")
+    </p>
+}
+else
+{
+    <div>
+        <h4>
+            There are No Records found in the database.<p>
+                @Html.ActionLink("Click her to Add", "Create")
+            </p>
+        </h4>
+    </div>
+}

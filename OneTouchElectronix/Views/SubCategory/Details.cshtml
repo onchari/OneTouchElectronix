@@ -1,0 +1,31 @@
+﻿@model OneTouchElectronix.Models.SubCategory
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+<div>
+    <h4>Sub Categories</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MainCategory.MainCategoryName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MainCategory.MainCategoryName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(d => d.SubCategoryName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(n => n.SubCategoryName)
+        </dd>
+    </dl>
+</div>
+
+<p>
+    @Html.ActionLink("Edit", "Edit",  new { id = Model.SubCategoryId}) ||
+    @Html.ActionLink("Back to List", "Index")
+</p>

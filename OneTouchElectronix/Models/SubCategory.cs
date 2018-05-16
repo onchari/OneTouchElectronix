@@ -1,11 +1,5 @@
-﻿using OneTouchElectronix.Interfaces;
-using System;
-using System.Collections.Generic;
+﻿
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Web;
-
 namespace OneTouchElectronix.Models
 {
     public class SubCategory 
@@ -21,7 +15,7 @@ namespace OneTouchElectronix.Models
         public string SubCategoryDescription { get; set; }
 
      
-        public int MainCategoryId { get; set; }
+        public int  MainCategoryId { get; set; }
         public MainCategory MainCategory { get; set; }
     }
 }

@@ -2,13 +2,15 @@
 using OneTouchElectronix.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
 namespace OneTouchElectronix.Controllers
 {
-    public class SubCategoryController : Controller, IControllers
+    public class SubCategoryController : Controller, IController
     {
         ApplicationDbContext db = new ApplicationDbContext();
 
@@ -22,7 +24,7 @@ namespace OneTouchElectronix.Controllers
        //POST : SubCategory/Create
        [HttpPost]
        [ValidateAntiForgeryToken]
-       public ActionResult Create([Bind(Include ="SubCategoryId, SubCategoryName, MainCategoryId")] SubCategory subCategoryentity)
+       public ActionResult Create([Bind(Include = "SubCategoryId, SubCategoryName, MainCategoryId, SubCategoryDescription")] SubCategory subCategoryentity)
         {
             if (ModelState.IsValid)
             {
@@ -34,29 +36,91 @@ namespace OneTouchElectronix.Controllers
             return View(subCategoryentity);
         }
 
-        public ActionResult Delete()
+        //GET : SubCategory/Delete/4
+        public ActionResult Delete(int? id)
         {
-            throw new NotImplementedException();
+           if(id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            SubCategory subCategory = db.SubCategories.Find(id);
+            if (subCategory == null)
+            {
+                return HttpNotFound();
+            }
+                return View(subCategory);
+            
+           
         }
 
-        public ActionResult DeleteConfirmed()
+
+        //POST : SubCategory/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+
+        public ActionResult DeleteConfirmed(int id)
         {
-            throw new NotImplementedException();
+            SubCategory subCategory = db.SubCategories.Find(id);
+            db.SubCategories.Remove(subCategory);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
 
-        public ActionResult Details()
+        
+
+        //GET : SubCategories /Details/4
+        public ActionResult Details(int ? id)
         {
-            throw new NotImplementedException();
+           if(id != null)
+            {
+                SubCategory subCategory = db.SubCategories.Find(id);
+                if(subCategory != null)
+                {
+                    return View(subCategory);
+                }
+                return HttpNotFound();
+            }
+            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
         }
 
-        public ActionResult Edit()
+        //GET : SubCategory?Edit /4
+        public ActionResult Edit(int ? id)
         {
-            throw new NotImplementedException();
+            if(id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            SubCategory subCategory = db.SubCategories.Find(id);
+            if (subCategory == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.MainCategoryId = new SelectList(db.MainCategories, "MainCategoryId", "MainCategoryName", subCategory.SubCategoryId);
+            return View(subCategory);
+        }
+
+        //POST : Subcategories/Edit/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+
+        public ActionResult Edit([Bind(Include ="SubCategoryId, SubCategoryName,MainCategoryId")] SubCategory subCategoryEntity)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(subCategoryEntity).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(subCategoryEntity);
         }
 
         public ActionResult Index()
         {
-            return View(db.SubCategories.ToList());
+            var query = db.SubCategories;
+           
+                return View(query.ToList());
+            
+            
             
         }
     }
